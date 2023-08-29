@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use Illuminate\Http\Request;
+use App\Http\Requests\ArticleRequest;
 
 class ArticleController extends Controller
 {
@@ -16,15 +16,29 @@ class ArticleController extends Controller
     }
 
 
-    public function show($id) 
+    public function show($id)
     {
         $article = Article::find($id);
-        return view('articles.show',['article' => $article]);
+        return view('articles.show', ['article' => $article]);
     }
 
+    public function create()
+    {
+        return view('articles.create');
+    }
 
+    public function store(ArticleRequest $request)
+    {
+        $article = new Article;
+
+        $article->title = $request->title;
+        $article->body = $request->body;
+
+        $article->save();
+
+        return redirect('/articles');
+    }
+
+    // public function update(MemoRequest $request, $id){
+    // }
 }
-
-
-
-

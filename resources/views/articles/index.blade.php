@@ -14,5 +14,7 @@
         
     @endforeach
     </ul>
+<button onclick="location.href='/articles/create'">登録する</button>
+
 </body>
 </html>
