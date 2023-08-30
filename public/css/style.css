@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+.body {
+    width: 400px;
+    height: 200px;
+}
+
+.error {
+    color: red;
+}
+
+.button-group {
+    display: flex;
+}
+
+.button-group > *:not(:last-child) {
+    margin-right: 10px;
+}
